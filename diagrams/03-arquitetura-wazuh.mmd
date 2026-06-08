@@ -1,0 +1,20 @@
+
+flowchart LR
+
+Agent[Wazuh Agent]
+
+Manager[Wazuh Manager]
+
+Decoder[Decoders]
+
+Rules[Rules Engine]
+
+Indexer[Wazuh Indexer]
+
+Dashboard[Dashboard]
+
+Agent --> Manager
+Manager --> Decoder
+Decoder --> Rules
+Rules --> Indexer
+Indexer --> Dashboard

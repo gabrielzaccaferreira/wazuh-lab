@@ -1,0 +1,38 @@
+
+flowchart TD
+
+A[Usuário]
+
+B[Tráfego de Rede]
+
+C[pfSense]
+
+D[Suricata IDS]
+
+E[eve.json]
+
+F[Wazuh Agent]
+
+G[Wazuh Manager]
+
+H[Decoders]
+
+I[Rules Engine]
+
+J[Wazuh Indexer]
+
+K[Wazuh Dashboard]
+
+L[Analista SOC]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+H --> I
+I --> J
+J --> K
+K --> L

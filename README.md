@@ -1,101 +1,131 @@
-]
+
 # Wazuh SIEM/XDR Lab
 
-## Sobre o Projeto
+## Laboratório Profissional de SIEM, IDS, Firewall e Threat Hunting
 
-Este repositório documenta a implementação de um laboratório prático de **SIEM/XDR utilizando o Wazuh**, desenvolvido com o objetivo de aprofundar conhecimentos em Redes de Computadores, Infraestrutura, Linux e Segurança da Informação.
+Este projeto documenta a construção completa de um laboratório voltado para estudos de:
 
-O ambiente foi construído em máquinas virtuais e contempla desde a instalação dos componentes até a integração com o **Suricata IDS**, permitindo a centralização e análise de eventos de segurança em um único Dashboard.
+* Redes de Computadores
+* Infraestrutura
+* Linux Administration
+* SIEM
+* IDS/IPS
+* Blue Team
+* SOC (Security Operations Center)
+* Threat Hunting
+
+Todo o ambiente foi desenvolvido em um laboratório próprio utilizando virtualização, integração entre ferramentas e documentação técnica detalhada.
 
 ---
 
 # Objetivos
 
-* Compreender a arquitetura do Wazuh
-* Implementar um ambiente SIEM funcional
-* Integrar agentes Linux ao Manager
-* Centralizar logs de segurança
-* Realizar Threat Hunting
-* Validar Vulnerability Detection
-* Validar Security Configuration Assessment (SCA)
-* Integrar o Suricata IDS ao Wazuh
+Este laboratório foi criado para:
+
+* Compreender o funcionamento interno do Wazuh;
+* Integrar diferentes fontes de eventos;
+* Estudar monitoramento de segurança;
+* Desenvolver habilidades em investigação de incidentes;
+* Construir um portfólio técnico para atuação em Redes, Infraestrutura, Cloud e Cibersegurança.
 
 ---
 
 # Arquitetura do Laboratório
 
 ```text
-                    Internet
-                        │
-                        ▼
-                 Suricata IDS
-                        │
-                        ▼
-                   eve.json
-                        │
-                        ▼
-                 Wazuh Agent
-                  (Kali Linux)
-                        │
-                        ▼
-                Wazuh Manager
-                        │
-                        ▼
-                Wazuh Indexer
-                        │
-                        ▼
-               Wazuh Dashboard
-                        │
-                        ▼
-                Threat Hunting
+Notebook
+        │
+        │ RDP
+        ▼
+
+Dell OptiPlex
+Windows 11 Pro
+
+        │
+
+VMware Workstation
+
+        │
+        ├─────────────────────────────┐
+        │                             │
+        ▼                             ▼
+
+Ubuntu Server                  Kali Linux
+Wazuh Server                   Wazuh Agent
+                               Suricata IDS
+
+        ▲                             │
+        │                             │
+        │                             ▼
+        │                        eve.json
+        │                             │
+        └──────────────►──────────────┘
+                       │
+                       ▼
+
+                 Wazuh Manager
+
+                       │
+
+                 Wazuh Indexer
+
+                       │
+
+                Wazuh Dashboard
+
+                       ▲
+
+                       │
+
+                   pfSense Firewall
 ```
 
 ---
 
-# Ambiente
+## Diagramas
 
-## Host
+Os diagramas técnicos do laboratório estão disponíveis em:
 
-* Dell OptiPlex
-* Intel Core i7-10700T
-* Windows 11
-* VMware Workstation
-
----
-
-## Ubuntu Server
-
-Funções:
-
-* Wazuh Manager
-* Wazuh Indexer
-* Wazuh Dashboard
-
----
-
-## Kali Linux
-
-Funções:
-
-* Wazuh Agent
-* Suricata IDS
+- [Topologia do Laboratório](diagrams/01-topologia.mmd)
+- [Fluxo dos Eventos](diagrams/02-fluxo-eventos.mmd)
+- [Arquitetura do Wazuh](diagrams/03-arquitetura-wazuh.mmd)
+- [Pipeline de Alertas](diagrams/04-pipeline-alertas.mmd)
 
 ---
 
 # Tecnologias Utilizadas
 
-* Linux
-* Ubuntu Server
+## Sistemas Operacionais
+
+* Windows 11 Pro
+* Ubuntu Server 24.04 LTS
 * Kali Linux
+
+---
+
+## Virtualização
+
 * VMware Workstation
+
+---
+
+## Segurança
+
 * Wazuh
 * Suricata
-* JSON
+* pfSense
+
+---
+
+## Ferramentas
+
+* Linux
+* SSH
+* RDP
 * Git
 * GitHub
-* SIEM
-* IDS
-* Threat Hunting
+* Syslog
+* JSON Logs
 
 ---
 
@@ -105,185 +135,140 @@ Funções:
 wazuh-lab/
 
 ├── configs/
-│
 ├── diagrams/
-│
 ├── docs/
-│   ├── 01-planejamento.md
-│   ├── 02-instalacao-ubuntu.md
-│   ├── 03-instalacao-wazuh.md
-│   ├── 04-agente-kali.md
-│   ├── 05-validacoes.md
-│   ├── 06-troubleshooting.md
-│   ├── 07-proximos-passos.md
-│   ├── 08-integracao-suricata.md
-│   ├── 09-validacao-suricata-wazuh.md
-│   └── 10-conclusao.md
-│
 ├── evidencias/
-│   ├── 01-dashboard-home.png
-│   ├── 02-services-running.png
-│   ├── 03-agent-active.png
-│   ├── 04-security-events.png
-│   └── 05-sca.png
-│
-├── .gitignore
-│
+├── LICENSE
 └── README.md
 ```
 
+---
 
 # Documentação
 
-Toda a implementação do laboratório foi documentada de forma cronológica, permitindo reproduzir cada etapa do ambiente.
+## 01 - Planejamento
 
-| Documento                        | Descrição                                          |
-| -------------------------------- | -------------------------------------------------- |
-| `01-planejamento.md`             | Planejamento inicial do laboratório                |
-| `02-instalacao-ubuntu.md`        | Instalação e configuração do Ubuntu Server         |
-| `03-instalacao-wazuh.md`         | Instalação do Wazuh Manager, Indexer e Dashboard   |
-| `04-agente-kali.md`              | Configuração e registro do agente Kali Linux       |
-| `05-validacoes.md`               | Testes e validações do ambiente                    |
-| `06-troubleshooting.md`          | Problemas encontrados e respectivas soluções       |
-| `07-proximos-passos.md`          | Planejamento de evolução do laboratório            |
-| `08-integracao-suricata.md`      | Integração do Suricata IDS com o Wazuh             |
-| `09-validacao-suricata-wazuh.md` | Validação da integração e análise dos resultados   |
-| `10-conclusao.md`                | Conclusão e aprendizados obtidos durante o projeto |
+Planejamento completo do laboratório.
 
 ---
 
-# Funcionalidades Validadas
+## 02 - Instalação do Ubuntu
 
-* ✅ Wazuh Manager
-* ✅ Wazuh Dashboard
-* ✅ Wazuh Indexer
-* ✅ Agente Kali Linux
-* ✅ Threat Hunting
-* ✅ Vulnerability Detection
-* ✅ Security Configuration Assessment (SCA)
-* ✅ Integração Suricata + Wazuh
-* ✅ Coleta e correlação de eventos
+Instalação e preparação do servidor.
 
 ---
 
-# Evidências
+## 03 - Instalação do Wazuh
 
-O projeto contém capturas de tela demonstrando:
-
-* Dashboard principal
-* Agente ativo
-* Threat Hunting
-* Security Events
-* Security Configuration Assessment
-* Alertas do Suricata
-* Validação dos serviços
-
-As imagens estão disponíveis no diretório:
-
-```text
-evidencias/
-```
+Instalação do Manager, Dashboard e Indexer.
 
 ---
 
-# Principais Aprendizados
+## 04 - Agente Kali
 
-Durante o desenvolvimento deste laboratório foi possível compreender na prática:
-
-* Arquitetura SIEM
-* Arquitetura IDS
-* Coleta e centralização de logs
-* Correlação de eventos
-* Investigação inicial de incidentes
-* Monitoramento contínuo
-* Documentação técnica
-* Versionamento com Git e GitHub
+Instalação e configuração do agente.
 
 ---
 
-# Competências Desenvolvidas
+## 05 - Validações
 
-Durante a implementação deste laboratório foram desenvolvidas e praticadas competências técnicas relacionadas às áreas de Redes, Infraestrutura e Segurança da Informação, incluindo:
+Testes realizados após a instalação.
+
+---
+
+## 06 - Troubleshooting
+
+Problemas encontrados e respectivas soluções.
+
+---
+
+## 07 - Próximos Passos
+
+Roadmap inicial do laboratório.
+
+---
+
+## 08 - Integração Suricata
+
+Integração entre Suricata IDS e Wazuh.
+
+---
+
+## 09 - Validação Suricata + Wazuh
+
+Validação prática dos eventos.
+
+---
+
+## 10 - Conclusão
+
+Resultados obtidos.
+
+---
+
+## 11 - Topologia do Laboratório
+
+Arquitetura completa do ambiente.
+
+---
+
+## 12 - Integração pfSense
+
+Integração do firewall com o SIEM.
+
+---
+
+## 13 - Fluxo dos Eventos
+
+Funcionamento interno do pipeline de eventos.
+
+---
+
+## 14 - Geração de Alertas
+
+Validação do processo completo de geração e processamento de alertas.
+
+---
+
+## 15 - Threat Hunting
+
+Utilização do laboratório para investigação de eventos e análise de ameaças.
+
+---
+
+# Competências Demonstradas
+
+Este projeto evidencia conhecimentos práticos em:
 
 * Linux Administration
-* Ubuntu Server
-* Kali Linux
-* Virtualização com VMware Workstation
-* Wazuh SIEM/XDR
-* Suricata IDS
-* Threat Hunting
-* Security Monitoring
-* Vulnerability Detection
-* Security Configuration Assessment (SCA)
-* Log Analysis
-* Event Correlation
-* File Integrity Monitoring (FIM)
-* Troubleshooting
-* Git
-* GitHub
-* Documentação Técnica
-* Arquitetura de SIEM
-* Arquitetura de IDS
-* Monitoramento de Eventos de Segurança
-
----
-
-## Roadmap do Laboratório
-
-### ✅ Fase 1 — Infraestrutura
-
-* [x] Instalação do Ubuntu Server
-* [x] Configuração do ambiente virtualizado
-* [x] Instalação do Wazuh
-
----
-
-### ✅ Fase 2 — Monitoramento
-
-* [x] Configuração do Wazuh Manager
-* [x] Configuração do Wazuh Dashboard
-* [x] Configuração do Wazuh Indexer
-* [x] Registro do agente Kali Linux
-
----
-
-### ✅ Fase 3 — Validações
-
-* [x] Threat Hunting
-* [x] Vulnerability Detection
-* [x] Security Configuration Assessment (SCA)
-* [x] Coleta de eventos do sistema
-
----
-
-### ✅ Fase 4 — Integração IDS
-
-* [x] Instalação do Suricata
-* [x] Geração do `eve.json`
-* [x] Integração Suricata + Wazuh
-* [x] Visualização de eventos no Dashboard
-
----
-
-### 🔄 Próximas Evoluções
-
-* [ ] Active Response
-* [ ] Regras customizadas do Wazuh
-* [ ] Simulação de ataques controlados
-* [ ] Integração com outras ferramentas de segurança
-* [ ] Mapeamento MITRE ATT&CK
-* [ ] Evolução para um Home SOC completo
-
----
-
-# Objetivo Profissional
-
-Este laboratório faz parte da minha jornada de especialização em:
-
 * Redes de Computadores
-* Infraestrutura
-* Cloud Computing
-* Segurança da Informação
-* SOC / Blue Team
+* Virtualização
+* SIEM
+* IDS
+* Firewall
+* Log Management
+* Troubleshooting
+* Threat Hunting
+* Blue Team
+* SOC Operations
 
-com foco na construção de um portfólio técnico baseado em projetos práticos e documentação detalhada.
+---
+
+# Próximas Evoluções
+
+* MITRE ATT&CK Mapping
+* Sysmon para Windows
+* Active Response
+* Dashboards personalizados
+* Threat Intelligence
+* Casos reais de investigação
+
+---
+
+# Autor
+
+Gabriel Zacca Ferreira
+
+Estudante de Redes de Computadores com foco em Infraestrutura, Cloud Computing e Cibersegurança.
+
+Este laboratório foi desenvolvido como projeto de estudo e evolução profissional, com documentação técnica completa e foco em boas práticas de monitoramento e defesa.

@@ -1,0 +1,42 @@
+
+flowchart TB
+
+A[Notebook]
+B[Dell OptiPlex<br/>Windows 11 Pro]
+C[VMware Workstation]
+
+D[Ubuntu Server<br/>Wazuh Server]
+
+E[Kali Linux<br/>Wazuh Agent]
+
+F[Suricata IDS]
+
+G[eve.json]
+
+H[Wazuh Manager]
+
+I[Wazuh Indexer]
+
+J[Wazuh Dashboard]
+
+K[pfSense]
+
+A -->|RDP| B
+
+B --> C
+
+C --> D
+
+C --> E
+
+E --> F
+
+F --> G
+
+G --> H
+
+K --> H
+
+H --> I
+
+I --> J
