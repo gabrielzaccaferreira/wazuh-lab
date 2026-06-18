@@ -1,4 +1,15 @@
 
+
+## Sumário
+
+- [Objetivos](#objetivos)
+- [Arquitetura do Laboratório](#arquitetura-do-laboratório)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Documentação](#documentação)
+- [Competências Demonstradas](#competências-demonstradas)
+- [Próximas Evoluções](#próximas-evoluções)
+
 # 🛡️ SOC Home Lab Enterprise
 
 ## Wazuh • Suricata • CrowdSec • Threat Hunting • Incident Response
