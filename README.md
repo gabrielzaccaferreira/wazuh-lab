@@ -9,10 +9,11 @@
 - [Documentação](#documentação)
 - [Competências Demonstradas](#competências-demonstradas)
 - [Próximas Evoluções](#próximas-evoluções)
+- [Laboratórios do SOC Home Lab](#-laboratórios-do-soc-home-lab)
 
-# 🛡️ SOC Home Lab Enterprise
+# 🛡️ Wazuh SIEM/XDR Lab
 
-## Wazuh • Suricata • CrowdSec • Threat Hunting • Incident Response
+## SOC Home Lab • SIEM • Threat Hunting • Incident Response
 
 ---
 
@@ -20,21 +21,6 @@
 
 ---
 
-# 📑 Índice
-
-- 📚 Sobre o projeto
-- 🎯 Objetivos
-- 🏗️ Arquitetura do laboratório
-- 🛠️ Tecnologias utilizadas
-- 📁 Estrutura do projeto
-- 🧪 Attack Scenarios
-- 🚨 Incident Response
-- 🎯 MITRE ATT&CK Coverage
-- 📈 Roadmap
-- 🏆 Competências desenvolvidas
-- 🚀 Próximos passos
-
----
 
 # 📚 Sobre o Projeto
 
@@ -400,12 +386,12 @@ O objetivo é compreender não apenas **como detectar um evento**, mas também *
 
 ---
 
-## Próximas técnicas previstas
+## Técnicas em evolução
 
-* 🔄 T1110 – Brute Force
-* 🔄 T1190 – Exploit Public-Facing Application
+* ✅ T1110 – Brute Force — praticado em cenários controlados de autenticação e logs SSH
+* ✅ T1190 – Exploit Public-Facing Application — praticado em laboratório web com aplicação vulnerável
+* ✅ T1059 – Command and Scripting Interpreter — observado em telemetria Windows/PowerShell
 * 🔄 T1053 – Scheduled Task/Job
-* 🔄 T1059 – Command and Scripting Interpreter
 * 🔄 T1078 – Valid Accounts
 * 🔄 T1105 – Ingress Tool Transfer
 * 🔄 T1021 – Remote Services
