@@ -1,4 +1,8 @@
+# 🛡️ Wazuh SIEM/XDR Lab
 
+Laboratório central do SOC Home Lab, utilizando Wazuh para coleta, correlação, análise de eventos, Threat Hunting, documentação de incidentes e integração com ferramentas de Blue Team.
+
+---
 
 ## Sumário
 
@@ -11,16 +15,7 @@
 - [Próximas Evoluções](#próximas-evoluções)
 - [Laboratórios do SOC Home Lab](#-laboratórios-do-soc-home-lab)
 
-# 🛡️ Wazuh SIEM/XDR Lab
-
-## SOC Home Lab • SIEM • Threat Hunting • Incident Response
-
 ---
-
-> Projeto prático de Cibersegurança voltado para estudos de Blue Team, SOC, Threat Hunting e Incident Response, desenvolvido através de laboratórios reais, simulações de ataques e documentação técnica profissional.
-
----
-
 
 # 📚 Sobre o Projeto
 
